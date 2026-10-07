@@ -1,0 +1,125 @@
+article.card {
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  width: 350px;
+  line-height: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+
+  & header {
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--space);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    & a {
+      text-decoration: none;
+    }
+  }
+
+  & main {
+    padding: var(--space);
+    width: inherit;
+    margin-bottom: -6.22px;
+
+    &:has(img) {
+      padding: 0;
+    }
+    & img {
+      width: 100%;
+      
+    }
+
+    &:first-child {
+      & img {
+        border-top-left-radius: var(--border-radius);
+        border-top-right-radius: var(--border-radius);
+      }
+    }
+    &:last-child {
+      & img {
+        border-bottom-left-radius: var(--border-radius);
+        border-bottom-right-radius: var(--border-radius);
+      }
+    }
+  }
+
+
+
+
+  & footer {
+    border-top: 1px solid var(--border-color);
+    width: inherit;
+    
+    & ul {
+      display: flex;
+      flex-direction: row;
+      padding: 0;
+      list-style: none;
+      align-items: center;
+      justify-content:space-evenly;
+
+
+
+
+    }
+
+    & ul > li {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      &:not(:last-child) {
+        border-right: black 1px solid;
+      }
+
+    }
+  }
+}
+
+@keyframes myAnimation {
+  from {
+    height: 0px;
+  }
+  to {
+    height: 500px;
+  }
+}
+
+@keyframes myAnimation2 {
+  from {
+    height: 500px;
+  }
+  to {
+    height: 0px;
+  }
+}
+
+
+body:has(:not(.hide-img:checked)) {
+
+  & .card > main > img {
+    animation: myAnimation2 0.5s ease-in-out forwards;
+  }
+}
+
+body:has(.hide-img:checked) {
+
+  & .card > main > img {
+    animation: myAnimation 0.5s ease-in-out forwards;
+  }
+}
+
+
+body.card {
+  display: flex;
+  gap: 2%;  
+  flex-direction: row;
+}
+
+/* 
+Add seperator
+fix img
+*/
+
